@@ -119,7 +119,19 @@ pm2 startup
 загрузку файлов в админку (просто более трудоёмкая функция, отложили на потом по вашей
 просьбе).
 
-## 5. Деплой на VPS с доменом (пример для Ubuntu + Nginx)
+## 5. Деплой на Railway (самый простой способ)
+
+1. Залейте проект в репозиторий на GitHub (`git init`, `git add .`, `git commit`, `git push`).
+2. На [railway.app](https://railway.app) — **New Project → Deploy from GitHub repo**, выберите репозиторий.
+3. Вкладка **Variables** — добавьте: `ADMIN_LOGIN`, `ADMIN_PASSWORD`, `ADMIN_JWT_SECRET`,
+   `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, `NODE_ENV=production`.
+4. Вкладка **Settings → Volumes** — добавьте volume с mount path `/app/data`, иначе каталог
+   товаров и заказы будут обнуляться при каждом передеплое.
+5. Railway сам соберёт и запустит проект (используется `railway.json` из репозитория).
+   После деплоя во вкладке **Settings → Networking** нажмите **Generate Domain** —
+   получите публичный адрес вида `electro-shop-production.up.railway.app`.
+
+## 6. Деплой на VPS с доменом (пример для Ubuntu + Nginx)
 
 ```bash
 # на сервере
@@ -166,7 +178,7 @@ sudo certbot --nginx -d ваш-домен.ру
 задеплоить проект из Git-репозитория за пару кликов, переменные окружения задаются
 в панели управления, бесплатного тарифа обычно достаточно для старта.
 
-## 6. Структура проекта
+## 7. Структура проекта
 
 ```
 electro-shop/
@@ -191,7 +203,7 @@ electro-shop/
 └── .env                        — настройки (создать из .env.example)
 ```
 
-## 7. Частые вопросы
+## 8. Частые вопросы
 
 **Можно ли изменить цвета/шрифты/логотип?**
 Да, всё в `app/globals.css` (цветовые переменные в начале файла) и в `components/Header.js`.
