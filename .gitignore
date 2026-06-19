@@ -1,0 +1,10 @@
+node_modules/
+.next/
+.env
+.env.local
+data/shop.db
+data/shop.db-journal
+data/shop.db-wal
+data/shop.db-shm
+npm-debug.log*
+.DS_Store

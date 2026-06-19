@@ -1,0 +1,29 @@
+{
+  "name": "electro-shop",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "init-db": "node scripts/init-db.js"
+  },
+  "dependencies": {
+    "next": "14.2.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "better-sqlite3": "^11.3.0",
+    "xlsx": "^0.18.5",
+    "jsonwebtoken": "^9.0.2",
+    "cookie": "^0.6.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  }
+}
